@@ -8,7 +8,7 @@ get '/' do
   "<a href='https://login.salesforce.com/services/oauth2/authorize?response_type=code&client_id=" + $client_id + "&client_secret=" + $client_secret + "&redirect_uri=" + $redirect_uri + "'>login with salesforce</a>"
 end
 
-get '/auth' do
+get '/oauth' do
   code = params[:code]
   if code == nil
     ""
