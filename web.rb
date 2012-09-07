@@ -10,11 +10,8 @@ end
 
 get '/oauth' do
   code = params[:code]
-  if code.nil?
-    ""
-  elsif
-    puts code
+  unless code.nil?
+    "Code #{code}!"
   end
-
 end
 
