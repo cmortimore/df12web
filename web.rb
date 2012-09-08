@@ -1,4 +1,7 @@
 require 'sinatra'
+require 'net/http'
+require 'net/https'
+require 'uri'
 
 $client_id = ENV['client_id']
 $client_secret = ENV['client_secret']
