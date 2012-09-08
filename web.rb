@@ -19,10 +19,17 @@ get '/oauth' do
     #path = '/services/oauth2/token'
     http = Net::HTTP.new('requestb.in', 80)
     path = 'oje8usoj'
-    data = 'client_id=' + $client_id + '&client_secret=' + $client_secret + '&redirect_uri=' + $redirect_uri + '&grant_type=authorization_code&code=' + code
-    headers = {'Content-Type'=> 'application/x-www-form-urlencoded'}
-    resp, data = http.post(path, data, headers)
-    "Token Reponse: #{resp.message}"
+    
+    request = Net::HTTP::Post.new(uri.request_uri)
+    request.set_form_data({"client_id" => $client_id, "client_secret" => $client_secret, "redirect_uri" => $redirect_uri, "grant_type" => "authorization_code", "code" => code})
+    #headers = {'Content-Type'=> 'application/x-www-form-urlencoded'}
+    response = http.request(request)
+    
+    
+    #data = 'client_id=' + $client_id + '&client_secret=' + $client_secret + '&redirect_uri=' + $redirect_uri + '&grant_type=authorization_code&code=' + code
+    #headers = {'Content-Type'=> 'application/x-www-form-urlencoded'}
+    #resp, data = http.post(path, data, headers)
+    "Token Reponse: #{response}"
   end
 end
 
