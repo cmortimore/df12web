@@ -24,7 +24,7 @@ get '/oauth' do
     headers = { 'Content-Type' => 'application/x-www-form-urlencoded' }
     resp, data = http.post(path, data, headers)
     
-    "Token Reponse: #{resp}"
+    "Token Response:  #{resp.body}"
   end
 end
 
